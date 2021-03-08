@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ChangeListManager">
+    <list default="true" id="6199d87b-e438-40e7-a324-74467d623a80" name="Default Changelist" comment="" />
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="JupyterTrust" id="100d18c0-d49d-448d-b3d9-af06fceb98e0" />
+  <component name="KubernetesApiPersistence">
+    <option name="context" value="gitlab/master-particles-dieei-unict-it:8443/admin" />
+    <option name="namespace" value="gitlab" />
+  </component>
+  <component name="ProjectId" id="1pTsQc3VLaah9zSGnvY7gHe0JDk" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">
+    <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
+    <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="go.import.settings.migrated" value="true" />
+    <property name="project.structure.last.edited" value="Modules" />
+    <property name="project.structure.proportion" value="0.0" />
+    <property name="project.structure.side.proportion" value="0.0" />
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="6199d87b-e438-40e7-a324-74467d623a80" name="Default Changelist" comment="" />
+      <created>1615218401891</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1615218401891</updated>
+      <workItem from="1615218412611" duration="62000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
+  </component>
+  <component name="WindowStateProjectService">
+    <state x="5574" y="426" key="#Project_Structure" timestamp="1615218418779">
+      <screen x="3840" y="0" width="3840" height="2160" />
+    </state>
+    <state x="5574" y="426" key="#Project_Structure/3840.0.3840.2160/0.0.3840.2104@3840.0.3840.2160" timestamp="1615218418779" />
+  </component>
+</project>
