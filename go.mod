@@ -1,4 +1,4 @@
-module github.com/aleskandro/prometheus-backfiller
+module github.com/aleskandro/go-prometheus-backfiller
 
 go 1.15
 
