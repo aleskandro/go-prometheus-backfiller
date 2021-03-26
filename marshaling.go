@@ -66,7 +66,7 @@ func (bh *backfillHandler) makeMetric(st reflect.StructField, field reflect.Valu
 	metricName := st.Name
 	metricLabels := bh.getPrometheusLabels(st.Tag.Get("prometheus"))
 
-	if !GetAdditionalLabels.IsZero() { // TODO probably IsZero is the wrong check method here
+	if !reflect.ValueOf(GetAdditionalLabels).IsZero() {
 		mapp := GetAdditionalLabels.Call([]reflect.Value{})[0].MapRange()
 		for mapp.Next() {
 			k := mapp.Key()
