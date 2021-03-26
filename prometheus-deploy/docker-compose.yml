@@ -1,0 +1,15 @@
+version: '3.8'
+##### Note: this docker-compose project is for development purposes ######
+
+x-xx-common-services-settings: &common-settings
+  restart: always
+
+services:
+  prometheus:
+    <<: *common-settings
+    image: aleskandro/prometheus:master
+    volumes:
+      - /run/media/aleskandro/9843e2e5-21ea-43cb-a51a-11ae0b323343/alibaba/prometheus:/prometheus/
+    ports:
+      - 9090:9090
+
