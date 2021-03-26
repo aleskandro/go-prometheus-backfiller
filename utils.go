@@ -11,3 +11,18 @@ var (
 	Notice3 = color.New(color.FgCyan, color.Bold).PrintlnFunc()
 	Notice4 = color.New(color.FgYellow).PrintlnFunc()
 )
+
+func Must(err error, errString string) {
+	if err != nil {
+		ErrLog("%v\n%v\n", err, errString)
+		panic(err)
+	}
+}
+
+func Should(err error, errString string) bool {
+	if err != nil {
+		ErrLog("%v\n%v\n", err, errString)
+		return false
+	}
+	return true
+}
