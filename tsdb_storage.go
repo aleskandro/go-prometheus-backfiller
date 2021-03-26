@@ -25,7 +25,7 @@ func (bh *backfillHandler) checkAndStore(force bool) {
 	oldBst := bh.bst
 	bh.bst = new(bst)
 	bh.bstLock.Unlock()
-	Notice2("BST swap done: ", oldBst.length, "metrics to store. Store in appender...")
+	// Notice2("BST swap done: ", oldBst.length, "metrics to store. Store in appender...")
 	counter := 0
 	var toStore []auxStoreStruct
 	oldBst.inorder(func(metric []*io_prometheus_client.Metric) {
@@ -56,7 +56,7 @@ func (bh *backfillHandler) checkAndStore(force bool) {
 		bh.store(&m)
 	}
 	bh.writerLock.Unlock()
-	Notice3("Saved", counter, "saved into tsdb appender of which length is:", bh.counter)
+	//	Notice3("Saved", counter, "saved into tsdb appender of which length is:", bh.counter)
 }
 
 func (bh *backfillHandler) store(m *auxStoreStruct) {
