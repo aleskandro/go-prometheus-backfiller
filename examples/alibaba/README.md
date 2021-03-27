@@ -9,5 +9,5 @@ cd /path/to/this/repo/examples/alibaba
 go run main.go
 ```
 
-Then deploy prometheus using the docker-compose available in the /path/to/this/repo/prometeus-deploy folder.
+Then deploy prometheus using the docker-compose available in the [/path/to/this/repo/prometeus-deploy folder](https://github.com/aleskandro/go-prometheus-backfiller/tree/master/prometheus-deploy).
 
