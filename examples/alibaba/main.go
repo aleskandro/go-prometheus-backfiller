@@ -28,8 +28,8 @@ var (
 	bufferedChanCap   = 64           // The following values depend both on available CPUs and Memory
 	semaphoreWeight   = int64(32)    // This is capped by synchronization structures (marshalling, write locks and writes on appender and disk)
 	concurrentQueries = int64(40)
-	path              = "/run/media/aleskandro/9843e2e5-21ea-43cb-a51a-11ae0b323343/alibaba/exploded"
-	outputDir         = "/run/media/aleskandro/9843e2e5-21ea-43cb-a51a-11ae0b323343/alibaba/prometheus"
+	path              = "./input"
+	outputDir         = "./output"
 )
 
 func main() {

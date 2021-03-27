@@ -9,7 +9,6 @@ services:
     <<: *common-settings
     image: aleskandro/prometheus:master
     volumes:
-      - /run/media/aleskandro/9843e2e5-21ea-43cb-a51a-11ae0b323343/alibaba/prometheus:/prometheus/
+      - ../examples/alibaba/output:/prometheus
     ports:
       - 9090:9090
-
