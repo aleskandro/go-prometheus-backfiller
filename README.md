@@ -115,4 +115,4 @@ successfully.
 
 # Other resources
 
-[Preprint@WetICE2021: Prometheus and AIOps for the orchestration ofCloud-native applications in Ananke](https://nc.alessandrodistefano.eu/s/gPd5MZyXjjkpjz4)
+[Preprint@WetICE2021: Prometheus and AIOps for the orchestration of Cloud-native applications in Ananke](https://nc.alessandrodistefano.eu/s/gPd5MZyXjjkpjz4)
