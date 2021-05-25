@@ -113,3 +113,6 @@ successfully.
 - Only supports Gauge: counters should be straight forward, histograms/summary adapters have to be thought
 - Auto-tuning of parameters based on available resources
 
+# Other resources
+
+[Prometheus and AIOps for the orchestration ofCloud-native applications in Ananke](https://nc.alessandrodistefano.eu/s/gPd5MZyXjjkpjz4)
