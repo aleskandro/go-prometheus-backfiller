@@ -11,3 +11,6 @@ go run main.go
 
 Then deploy prometheus using the docker-compose available in the [/path/to/this/repo/prometeus-deploy folder](https://github.com/aleskandro/go-prometheus-backfiller/tree/master/prometheus-deploy).
 
+Data from the dataset are available at the first week of March 2020. 
+
+

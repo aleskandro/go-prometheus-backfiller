@@ -53,19 +53,29 @@ func (bh *backfillHandler) deepReflectParse(timestamp int64, structType reflect.
 		case reflect.Struct:
 			bh.deepReflectParse(timestamp, reflect.TypeOf(field.Interface()), field, GetAdditionalLabels, row)
 		case reflect.Float64:
-			metric := bh.makeMetric(st, field, &timestamp, GetAdditionalLabels)
-			*row = append(*row, &metric)
+			metric := bh.makeMetric(st, field.Float(), &timestamp, GetAdditionalLabels)
+			if metric != nil {
+				*row = append(*row, metric)
+			}
+		case reflect.Int64:
+			metric := bh.makeMetric(st, float64(field.Int()), &timestamp, GetAdditionalLabels)
+			if metric != nil {
+				*row = append(*row, metric)
+			}
 		default:
 		}
 	}
 }
 
-func (bh *backfillHandler) makeMetric(st reflect.StructField, field reflect.Value,
-	ts *int64, GetAdditionalLabels reflect.Value) (metric io_prometheus_client.Metric) {
+func (bh *backfillHandler) makeMetric(st reflect.StructField, metricValue float64,
+	ts *int64, GetAdditionalLabels reflect.Value) (metric *io_prometheus_client.Metric) {
 
 	metricName := st.Name
 	metricLabels := bh.getPrometheusLabels(st.Tag.Get("prometheus"))
-
+	if len(metricLabels) == 0 {
+		return nil
+	}
+	metric = new(io_prometheus_client.Metric)
 	if !reflect.ValueOf(GetAdditionalLabels).IsZero() {
 		mapp := GetAdditionalLabels.Call([]reflect.Value{})[0].MapRange()
 		for mapp.Next() {
@@ -74,8 +84,6 @@ func (bh *backfillHandler) makeMetric(st reflect.StructField, field reflect.Valu
 			metricLabels[k.String()] = v.String()
 		}
 	}
-
-	metricValue := field.Float()
 
 	metricType, ok := metricLabels["metric_type"]
 	if !ok || metricType == "-" { // Ignore unwanted metrics
