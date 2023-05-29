@@ -42,7 +42,7 @@ type BaseRecord struct {
     // prometheus tag needs metric_type:gauge (other metrics are not supported yet)
     // Any other field in the prometheus tag will be used as label for the metric.
 	SystemRunning         float64 `gorm:"column:system" prometheus:"metric_type:gauge,description:The system is up and running,humanName: "System is running"`
-	ManagementRunning     float64 `gorm:"column:management" prometheus:"metric_type:gauge"`
+	ManagementRunning     float64 `gorm:"column:management" prometheus:"metric_type:gauge,metric_name:management_running"`
 	TotalNodesRunning     float64 `gorm:"column:nodes_total" prometheus:"metric_type:gauge"`
 }
 
@@ -57,6 +57,10 @@ func (br BaseRecord) GetAdditionalLabels() map[string]string {
 }
 
 ```
+
+Note: **prometheus tags** are:
+- `metric_type`: gauge, counter
+- `metric_name`: the displayed prometheus name of the metric (if not present, the name of the field will be used with camelCase golang convention)
 
 ```go
 package main
