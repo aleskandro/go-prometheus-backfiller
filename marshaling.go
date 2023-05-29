@@ -72,6 +72,10 @@ func (bh *backfillHandler) makeMetric(st reflect.StructField, metricValue float6
 
 	metricName := st.Name
 	metricLabels := bh.getPrometheusLabels(st.Tag.Get("prometheus"))
+	if metricLabels["metric_name"] != "" {
+		//TODO need validation?
+		metricName = metricLabels["metric_name"]
+	}
 	if len(metricLabels) == 0 {
 		return nil
 	}
