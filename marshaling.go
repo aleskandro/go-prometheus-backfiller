@@ -3,6 +3,7 @@ package prometheus_backfill
 import (
 	io_prometheus_client "github.com/prometheus/client_model/go"
 	"reflect"
+	"regexp"
 	"strings"
 	"sync"
 )
@@ -72,8 +73,7 @@ func (bh *backfillHandler) makeMetric(st reflect.StructField, metricValue float6
 
 	metricName := st.Name
 	metricLabels := bh.getPrometheusLabels(st.Tag.Get("prometheus"))
-	if metricLabels["metric_name"] != "" {
-		//TODO need validation?
+	if bh.isMetricNameValid(metricLabels["metric_name"]) {
 		metricName = metricLabels["metric_name"]
 	}
 	if len(metricLabels) == 0 {
@@ -141,6 +141,13 @@ func (*backfillHandler) marshalLabelsMap(labels map[string]string) (prometheusLa
 		})
 	}
 	return
+}
+
+func (*backfillHandler) isMetricNameValid(metricName string) bool {
+	if match, _ := regexp.MatchString("[a-zA-Z_:][a-zA-Z0-9_:]*", metricName); !match || metricName == "" {
+		return false
+	}
+	return true
 }
 
 // E.g. prometheus:"metric_type:counter,unit:W,myLabel1:myLabel1Value..."
